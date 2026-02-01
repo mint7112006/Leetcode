@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int left = 0;
+        int right = 1;
+        int n = prices.size();
+        int currentProfit;
+        int totalMaxProfit=0;
+        vector<bool> sign(n,false);
+        while(right < n){
+           if(!sign[left]){
+                currentProfit = prices[right]-prices[left];
+           }
+            if(currentProfit < 0){
+                left++;
+                continue;
+            }
+            if(right != left){
+                sign[left]=true;
+                left++;
+            }
+            totalMaxProfit += currentProfit;
+            right++;
+        }
+        return totalMaxProfit;
+    }
+};
