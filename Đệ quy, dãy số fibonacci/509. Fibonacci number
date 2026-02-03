@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int fibonacci[93];
+    int fib(int n) {
+        if(fibonacci[n] != 0)return fibonacci[n];
+        if(n < 2)return n;
+        int tmp = fib(n-1)+fib(n-2);
+        fibonacci[n] = tmp;
+        // dừng đệ quy
+        return fibonacci[n];    
+        
+    }
+};
